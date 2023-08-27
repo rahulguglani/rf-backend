@@ -1,24 +1,14 @@
 const express = require('express');
 const multer = require('multer');
-const path = require('path');
+const mime = require('mime-types');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Set up Multer storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  }
-});
-
+const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Serve static files from the "uploads" directory
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Set up CORS to allow requests from any origin
 app.use((req, res, next) => {
@@ -38,15 +28,16 @@ app.post('/upload', upload.single('file'), (req, res) => {
   const fileInfo = {
     originalName: uploadedFile.originalname,
     size: uploadedFile.size,
-    mimeType: uploadedFile.mimetype,
-    filePath: uploadedFile.path
+    mimeType: uploadedFile.mimetype
   };
 
   res.json({ message: 'File uploaded successfully.', fileInfo });
 });
+
 app.get('/', (req, res) => {
   res.send('Welcome to backend');
 });
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
