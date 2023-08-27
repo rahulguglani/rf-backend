@@ -6,14 +6,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: your-app
+      app: file-app
   template:
     metadata:
       labels:
-        app: your-app
+        app: file-app
     spec:
       containers:
         - name: file-app-container
-          image: file-app:latest
+          image: rahulguglani/file-app:latest
           ports:
             - containerPort: 3000
