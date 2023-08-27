@@ -4,7 +4,7 @@ metadata:
   name: file-app-service
 spec:
   selector:
-    app: your-app
+    app: file-app
   ports:
     - protocol: TCP
       port: 3000
