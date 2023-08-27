@@ -40,3 +40,27 @@ jobs:
           docker buildx create --use
           docker run -d -p 3000:3000 rahulguglani/file-app:latest
 
+# for automating kubernetes deployment
+# name: Deploy to Kubernetes
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
+      
+#     - name: Set up Kubernetes CLI
+#       uses: azure/setup-kubectl@v1
+      
+#     - name: Apply Kubernetes manifests
+#       run: |
+#         kubectl apply -f kubernetes/deployment.yaml
+#         kubectl apply -f kubernetes/service.yaml
+          
