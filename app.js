@@ -44,7 +44,9 @@ app.post('/upload', upload.single('file'), (req, res) => {
 
   res.json({ message: 'File uploaded successfully.', fileInfo });
 });
-
+app.get('/', (req, res) => {
+  res.send('Welcome to backend');
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
