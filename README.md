@@ -50,7 +50,7 @@ I have made the frontend of the app using html, css and javascript, when we clic
 ![Docker Hub](image-4.png)
 ![Docker Desktop](image-2.png)
 ![build docker](image-5.png)
-![Github Actions](image-6.png)
+![Github actions](image-11.png)
 
 ### 3. Kubernetes Deployment
 
