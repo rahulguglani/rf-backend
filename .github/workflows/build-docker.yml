@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Image and run container using bash script
 
 on:     # this github action will work when we push some changes in main branch
   push:
@@ -6,7 +6,7 @@ on:     # this github action will work when we push some changes in main branch
       - main  
 
 jobs:   # this contains different jobs to be done when this action is triggerd
-  build-and-push:   # job1: build and push docker image
+  docker-image:   # job1: build and push docker image
     runs-on: ubuntu-latest
 
     steps:
@@ -24,9 +24,9 @@ jobs:   # this contains different jobs to be done when this action is triggerd
           docker buildx create --use
           docker buildx build -t rahulguglani/file-app:latest . --push
   
-  run-container:      # job2: running container using bash script
+  docker-container:      # job2: running container using bash script
     runs-on: ubuntu-latest
-    needs: build-and-push
+    needs: docker-image
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
