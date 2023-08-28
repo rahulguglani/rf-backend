@@ -1,6 +1,6 @@
+// importing necessary libraries
 const express = require('express');
 const multer = require('multer');
-const mime = require('mime-types');
 
 // using express for backend 
 const app = express();
@@ -52,6 +52,17 @@ app.get('/', (req, res) => {
   res.send('Welcome to backend --submited by : rahul guglani');
 });
 
+// an api for returning sample api
+app.get('/info', (req, res) => {
+  const myInfo = {
+    name: 'Rahul Guglani',
+    email: 'rahulguglani75000@gmail.com',
+    github: 'https://github.com/rahulguglani',
+    rollno: '20103116',
+    phoneno: '9548408715'
+  };
+  res.json(myInfo);
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
