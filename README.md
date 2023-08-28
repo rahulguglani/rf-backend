@@ -1,56 +1,51 @@
 # File Information App
 
-Welcome to the RapidFort Campus Recruitment Drive Offline Project! This project involves creating a REST API-based web server that allows users to upload files and retrieves information about the uploaded files. The project also includes additional features such as a simple user interface, Docker containerization, and Kubernetes deployment.
+This Project is for Rapidfort Campus Recruietment Drive! This project involves creating a REST API-based web server that allows users to upload files and retrieves information about the uploaded files. Also in this project we have configured Docker image and automated docker image build and push using Github actions and also made an bash script to run a docker container which runs the docker image and also automated that using github action.
 
 ## Project Links
 
-- [Project Repository](https://github.com/rahulguglani/rf-backend)
+- [Backend Repository](https://github.com/rahulguglani/rf-backend)
 - [Frontend Repository](https://github.com/rahulguglani/rf-frontend)
 - [Deployed Backend](https://rf-backend-production.up.railway.app/)
 - [Deployed Frontend](https://file-info-rapidfort.netlify.app/)
 
 
 ## Project Overview
-This is an offline project mainly focused on creating a REST API-based web server that handles file uploads and provides us the information about the uploaded files. This documentation will guide you through the project’s objectives and implementation.
+Main objective of this project is to retrive the file information that we upload on the webserver.
 ![landing page](image.png)
 
 ## Key Features
 
-- Upload files via the user-friendly UI.
-- Obtain detailed information about uploaded files via the API.
-- Containerized backend application using Docker.
+- Upload files via frontend.
+- Obtain information about the file.
+- containerized application using docker.
 - Kubernetes-compatible for easy deployment and management.
+- configured app automation using github actions
 
 ## UI Overview
 
-The frontend of our application is designed to provide a user-friendly experience for uploading and obtaining information about files. With a clean and intuitive interface, users can easily choose a file to upload and learn key details about it. The application allows you to select a file by clicking a button, and once a file is chosen, its name is displayed. This information is then used to provide details such as the original name of the file, its size in bytes, and its specific file type. The frontend's design focuses on simplicity and usability, making it accessible for users of all levels. Whether you're uploading images, documents, or any other type of file, our frontend ensures a smooth and informative experience.
+I have made the frontend of the app using html, css and javascript, when we click on upload a file button an window appear for selecting a file and after selection name of the file is shown and a button for upload is provided , after uploading the details of the file are shown.
 
 ![Landing page](image-7.png)
 ![when a file is selected](image-8.png)
 ![output](image-9.png)
 
-## Project Setup
-
-### Prerequisites
-
-- Node.js and npm: [Install Node.js](https://nodejs.org/)
-- Docker: [Install Docker](https://www.docker.com/)
-- Kubernetes: [Install Kubernetes](https://kubernetes.io/)
 
 ## Implementation Steps
 
 ### 1. Backend Development
 
-- Set up Express Server: The `app.js` file sets up an Express server to handle file uploads and responses.
-- Install Dependencies: Run `npm install express multer mime-types` to install the required packages.
-- Test the Backend: Start the backend server using `node app.js` and test it by sending requests to the endpoints through a browser.
+- I have made Backend using node js , main api `/upload` post api is stored in `app.js` which stores the uploaded file using multer library.
+- after correct file , information of file is retrived such as file name , size and file type and is send as response.
+- server can be run through `node app.js`
 ![backend](image-1.png)
 
 ### 2. Docker Containerization
 
-- Create Dockerfile: The `Dockerfile` defines how the backend application should be containerized.
-- Build Docker Image: Run `docker build -t rapid-backend .` to build the Docker image.
-- Push to Docker Hub: Use the GitHub Actions workflow defined in `docker-build.yml` to automatically build and push the Docker image to Docker Hub.
+- firstly i have created `Dockerfile` that defines how the backend application should be containerized.
+- then i have configured building and pushing of docker image in docker-build.yml which has a job to build and push docker image.
+- also `docker-build.yml` file also have a job that run bash file to run the container.
+- firsty build and push job is completed then run container job is completed.
 ![Dockerfile](image-3.png)
 ![Docker Hub](image-4.png)
 ![Docker Desktop](image-2.png)
@@ -59,20 +54,18 @@ The frontend of our application is designed to provide a user-friendly experienc
 
 ### 3. Kubernetes Deployment
 
-- Kubernetes Configuration: Create `deployment.yaml` and `service.yaml` to define the Kubernetes Deployment and Service for the backend application.
-- Apply Configurations: Apply these configurations to the Kubernetes cluster using the following commands:
+- for Kubernetes we have made two files `deployment.yaml` and `service.yaml` in a folder name Kubernetes
+- and then applied these confriguation into action using these command, it runs in localhost with the help of docker desktop feature:
   - `kubectl apply -f ./kubernetes/deployment.yaml`
   - `kubectl apply -f ./kubernetes/service.yaml`
 
 ![kubernetes](image-10.png)
 
+### 4. Backend Deployment
 
-### 4. Frontend Development
+- I have deployed the backend on `railway.app`` to make the api endpoints publically avilaible.
 
-- HTML, JavaScript, CSS Files: Create `index.html` for frontend UI, `script.js`, and `styles.css`.
-- Host Frontend Files: Host these frontend files on a web server, static hosting service, or locally. Ensure files are accessible via a URL.
-- Test Frontend UI: Access the hosted frontend UI through a web browser. Interact with the UI to upload files, trigger requests to the backend API, and display file information.
+### 5. Frontend Development
 
-## Contact
-
-If you have any questions or suggestions, feel free to contact us at rahulguglani75000@gmail.com
+- In frontend development i have created three files namely `index.html`, `styles.css` and `scripts.js` for a simple ui for the application.
+- I have hosted the frontend on Netlify.
