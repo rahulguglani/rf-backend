@@ -2,21 +2,17 @@
 
 Welcome to the RapidFort Campus Recruitment Drive Offline Project! This project involves creating a REST API-based web server that allows users to upload files and retrieves information about the uploaded files. The project also includes additional features such as a simple user interface, Docker containerization, and Kubernetes deployment.
 
-# RapidFort: Campus Recruitment Drive Documentation
-
-Welcome to the RapidFort project documentation. This project focuses on creating a REST API-based web server and UI for handling file uploads and providing information about the uploaded files.
-
 ## Project Links
 
 - [Project Repository](https://github.com/rahulguglani/rf-backend)
 - [Frontend Repository](https://github.com/rahulguglani/rf-frontend)
-- [Deployed Backend](https://rf-backend-production.up.railway.app/upload)
+- [Deployed Backend](https://rf-backend-production.up.railway.app/)
 - [Deployed Frontend](https://file-info-rapidfort.netlify.app/)
 
 
 ## Project Overview
-
-RapidFort is an offline project designed for campus recruitment drives. The project aims to create a seamless experience for managing file uploads and retrieving information about the uploaded files through a REST API-based web server. The project consists of the following components:
+This is an offline project mainly focused on creating a REST API-based web server that handles file uploads and provides us the information about the uploaded files. This documentation will guide you through the project’s objectives and implementation.
+![landing page](image.png)
 
 ### Backend Development
 
@@ -43,7 +39,11 @@ RapidFort is an offline project designed for campus recruitment drives. The proj
 
 ## UI Overview
 
-_Insert a brief description of the UI and its functionalities._
+The frontend of our application is designed to provide a user-friendly experience for uploading and obtaining information about files. With a clean and intuitive interface, users can easily choose a file to upload and learn key details about it. The application allows you to select a file by clicking a button, and once a file is chosen, its name is displayed. This information is then used to provide details such as the original name of the file, its size in bytes, and its specific file type. The frontend's design focuses on simplicity and usability, making it accessible for users of all levels. Whether you're uploading images, documents, or any other type of file, our frontend ensures a smooth and informative experience.
+
+![Landing page](image-7.png)
+![when a file is selected](image-8.png)
+![output](image-9.png)
 
 ## Project Setup
 
@@ -60,12 +60,18 @@ _Insert a brief description of the UI and its functionalities._
 - Set up Express Server: The `app.js` file sets up an Express server to handle file uploads and responses.
 - Install Dependencies: Run `npm install express multer mime-types` to install the required packages.
 - Test the Backend: Start the backend server using `node app.js` and test it by sending requests to the endpoints through a browser.
+![backend](image-1.png)
 
 ### 2. Docker Containerization
 
 - Create Dockerfile: The `Dockerfile` defines how the backend application should be containerized.
 - Build Docker Image: Run `docker build -t rapid-backend .` to build the Docker image.
 - Push to Docker Hub: Use the GitHub Actions workflow defined in `docker-build.yml` to automatically build and push the Docker image to Docker Hub.
+![Dockerfile](image-3.png)
+![Docker Hub](image-4.png)
+![Docker Desktop](image-2.png)
+![build docker](image-5.png)
+![Github Actions](image-6.png)
 
 ### 3. Kubernetes Deployment
 
@@ -73,6 +79,8 @@ _Insert a brief description of the UI and its functionalities._
 - Apply Configurations: Apply these configurations to the Kubernetes cluster using the following commands:
   - `kubectl apply -f deployment.yaml`
   - `kubectl apply -f service.yaml`
+
+
 
 ### 4. Frontend Development
 
@@ -82,4 +90,4 @@ _Insert a brief description of the UI and its functionalities._
 
 ## Contact
 
-If you have any questions or suggestions, feel free to contact us at example@example.com.
+If you have any questions or suggestions, feel free to contact us at rahulguglani75000@gmail.com
