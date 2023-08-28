@@ -4,7 +4,7 @@ const multer = require('multer');
 
 // using express for backend 
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = 3000;
 
 // Using Multer library for storage of files 
 const storage = multer.memoryStorage();
@@ -20,31 +20,31 @@ app.use((req, res, next) => {
 
 // Main API for handling the file upload and returning , file info as response
 app.post('/upload', upload.single('file'), (req, res) => {
-  const uploadedFile = req.file;
+  const recFile = req.file;
 
   //if unable to access file return error
-  if (!uploadedFile) {
+  if (!recFile) {
     return res.status(400).send('No file uploaded.');
   }
   
   // if there are error related to file processing
-  if (uploadedFile.truncated) {
+  if (recFile.truncated) {
     return res.status(400).json({ error: 'File size exceeds limit.' });
   }
 
   // if there are error related to file upload with multer
-  if (uploadedFile instanceof multer.MulterError) {
-    return res.status(400).json({ error: uploadedFile.message });
+  if (recFile instanceof multer.MulterError) {
+    return res.status(400).json({ error: recFile.message });
   }
 
   // storing information of the file to return
-  const fileInfo = {
-    originalName: uploadedFile.originalname,
-    size: uploadedFile.size,
-    mimeType: uploadedFile.mimetype
+  const details = {
+    originalName: recFile.originalname,
+    size: recFile.size,
+    mimeType: recFile.mimetype
   };
 
-  res.status(200).json({ message: 'File uploaded successfully.', fileInfo });
+  res.status(200).json({ message: 'File uploaded successfully.', details });
 });
 
 // an get api just to check at root if the api is working or not
@@ -65,5 +65,5 @@ app.get('/info', (req, res) => {
 });
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${PORT}`);
 });
