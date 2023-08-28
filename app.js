@@ -64,6 +64,6 @@ app.get('/info', (req, res) => {
   res.json(myInfo);
 });
 // Start the server
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
