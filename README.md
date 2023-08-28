@@ -61,9 +61,10 @@ The frontend of our application is designed to provide a user-friendly experienc
 
 - Kubernetes Configuration: Create `deployment.yaml` and `service.yaml` to define the Kubernetes Deployment and Service for the backend application.
 - Apply Configurations: Apply these configurations to the Kubernetes cluster using the following commands:
-  - `kubectl apply -f deployment.yaml`
-  - `kubectl apply -f service.yaml`
+  - `kubectl apply -f ./kubernetes/deployment.yaml`
+  - `kubectl apply -f ./kubernetes/service.yaml`
 
+![kubernetes](image-10.png)
 
 
 ### 4. Frontend Development
