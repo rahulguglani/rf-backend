@@ -14,22 +14,6 @@ Welcome to the RapidFort Campus Recruitment Drive Offline Project! This project 
 This is an offline project mainly focused on creating a REST API-based web server that handles file uploads and provides us the information about the uploaded files. This documentation will guide you through the project’s objectives and implementation.
 ![landing page](image.png)
 
-### Backend Development
-
-1. **Express Server Setup:** The backend is built using Node.js and Express.js, providing a robust foundation for handling HTTP requests and file uploads.
-2. **File Upload Endpoint:** The `/upload` endpoint allows users to upload files, which are then processed to provide detailed information.
-3. **Welcome Message Endpoint:** The root endpoint `/` greets users with a welcome message to confirm the API's availability.
-
-### Docker Containerization
-
-1. **Dockerfile Definition:** The project provides a Dockerfile that outlines how the backend application should be containerized.
-2. **Build and Push Workflow:** GitHub Actions are configured to automatically build and push the Docker image to a Docker Hub repository.
-
-### Kubernetes Deployment
-
-1. **Kubernetes Configuration Files:** Deployment (`deployment.yaml`) and Service (`service.yaml`) configuration files are included for easy deployment to a Kubernetes cluster.
-2. **Scalability and Management:** The Kubernetes deployment allows seamless scaling and management of the application in a cluster environment.
-
 ## Key Features
 
 - Upload files via the user-friendly UI.
