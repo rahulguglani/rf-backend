@@ -2,31 +2,56 @@
 
 Welcome to the RapidFort Campus Recruitment Drive Offline Project! This project involves creating a REST API-based web server that allows users to upload files and retrieves information about the uploaded files. The project also includes additional features such as a simple user interface, Docker containerization, and Kubernetes deployment.
 
-## Table of Contents
+# RapidFort: Campus Recruitment Drive Documentation
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Deployment](#deployment)
+Welcome to the RapidFort project documentation. This project focuses on creating a REST API-based web server and UI for handling file uploads and providing information about the uploaded files.
+
+## Project Links
+
+- [Project Repository](https://github.com/rahulguglani/rf-backend)
+- [Frontend Repository](https://github.com/rahulguglani/rf-frontend)
+- [Deployed Backend](https://rf-backend-production.up.railway.app/upload)
+- [Deployed Frontend](https://file-info-rapidfort.netlify.app/)
+
 
 ## Project Overview
 
-This is an offline project focused on creating a REST API-based web server that handles file uploads and provides information about the uploaded files. This documentation will guide you through the project’s objectives and implementation.
+RapidFort is an offline project designed for campus recruitment drives. The project aims to create a seamless experience for managing file uploads and retrieving information about the uploaded files through a REST API-based web server. The project consists of the following components:
 
-## Project Objectives
+### Backend Development
 
-1. **REST API-based Web Server**: The core objective is to build a web server that communicates using REST APIs. This server should handle file uploads and provide information about the uploaded files.
+1. **Express Server Setup:** The backend is built using Node.js and Express.js, providing a robust foundation for handling HTTP requests and file uploads.
+2. **File Upload Endpoint:** The `/upload` endpoint allows users to upload files, which are then processed to provide detailed information.
+3. **Welcome Message Endpoint:** The root endpoint `/` greets users with a welcome message to confirm the API's availability.
 
-2. **API Definition and Clarity of REST**: Clearly define API endpoints and explain how the API works, including methods such as GET and POST, and how data should be formatted in requests and responses.
+### Docker Containerization
 
-3. **Simple UI Integration**: Develop a user interface that makes it easy for users to interact with the web server. This could be a web page where users can upload files and view information about them.
+1. **Dockerfile Definition:** The project provides a Dockerfile that outlines how the backend application should be containerized.
+2. **Build and Push Workflow:** GitHub Actions are configured to automatically build and push the Docker image to a Docker Hub repository.
 
-4. **CI/CD Pipelines with Docker**: Set up a continuous integration/deployment pipeline to automate building, testing, and deploying applications. Focus on building Docker containers as part of the pipeline.
+### Kubernetes Deployment
 
-5. **Run Docker Containers**: Create bash scripts that simplify the process of running Docker containers. The script should build the container image and start the container with the desired configuration.
+1. **Kubernetes Configuration Files:** Deployment (`deployment.yaml`) and Service (`service.yaml`) configuration files are included for easy deployment to a Kubernetes cluster.
+2. **Scalability and Management:** The Kubernetes deployment allows seamless scaling and management of the application in a cluster environment.
 
-6. **Kubernetes Deployment**: Create configuration files (usually in YAML format) to deploy your web server to a Kubernetes cluster. These files define how applications are managed in the Kubernetes environment.
+## Key Features
+
+- Upload files via the user-friendly UI.
+- Obtain detailed information about uploaded files via the API.
+- Containerized backend application using Docker.
+- Kubernetes-compatible for easy deployment and management.
+
+## UI Overview
+
+_Insert a brief description of the UI and its functionalities._
+
+## Project Setup
+
+### Prerequisites
+
+- Node.js and npm: [Install Node.js](https://nodejs.org/)
+- Docker: [Install Docker](https://www.docker.com/)
+- Kubernetes: [Install Kubernetes](https://kubernetes.io/)
 
 ## Implementation Steps
 
@@ -58,41 +83,3 @@ This is an offline project focused on creating a REST API-based web server that 
 ## Contact
 
 If you have any questions or suggestions, feel free to contact us at example@example.com.
-
-## Features
-
-- Upload files through a REST API endpoint.
-- Retrieve information about uploaded files.
-- Simple user interface for interacting with the web server.
-- Docker containerization for easy deployment.
-- Kubernetes manifest files for hosting the web server on a Kubernetes cluster.
-
-## Getting Started
-
-To get started with the project, follow these steps:
-
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd RapidFort-Campus-Recruitment-Project`
-3. Install project dependencies: `npm install`
-
-## Usage
-
-1. Run the web server: `npm start`
-2. Access the user interface: Open a web browser and navigate to `http://localhost:3000`
-3. Upload files through the UI and view information about them.
-
-## Deployment
-
-### Docker Containerization
-
-To build and run the Docker container, follow these steps:
-
-1. Build the Docker image: `docker build -t rapidfort-web-server .`
-2. Run the Docker container: `docker run -p 3000:3000 rapidfort-web-server`
-
-### Kubernetes Deployment
-
-To deploy the web server on a Kubernetes cluster, use the provided Kubernetes manifest files:
-
-1. Apply the deployment manifest: `kubectl apply -f kubernetes/deployment.yaml`
-2. Apply the service manifest: `kubectl apply -f kubernetes/service.yaml`
