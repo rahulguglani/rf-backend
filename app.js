@@ -2,40 +2,54 @@ const express = require('express');
 const multer = require('multer');
 const mime = require('mime-types');
 
+// using express for backend 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Set up Multer storage
+// Using Multer library for storage of files 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 
-// Set up CORS to allow requests from any origin
+// Seting up CORS for allowing Communication from cross origin
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
-// Route to handle file uploads
+// Main API for handling the file upload and returning , file info as response
 app.post('/upload', upload.single('file'), (req, res) => {
   const uploadedFile = req.file;
 
+  //if unable to access file return error
   if (!uploadedFile) {
     return res.status(400).send('No file uploaded.');
   }
+  
+  // if there are error related to file processing
+  if (uploadedFile.truncated) {
+    return res.status(400).json({ error: 'File size exceeds limit.' });
+  }
 
+  // if there are error related to file upload with multer
+  if (uploadedFile instanceof multer.MulterError) {
+    return res.status(400).json({ error: uploadedFile.message });
+  }
+
+  // storing information of the file to return
   const fileInfo = {
     originalName: uploadedFile.originalname,
     size: uploadedFile.size,
     mimeType: uploadedFile.mimetype
   };
 
-  res.json({ message: 'File uploaded successfully.', fileInfo });
+  res.status(200).json({ message: 'File uploaded successfully.', fileInfo });
 });
 
+// an get api just to check at root if the api is working or not
 app.get('/', (req, res) => {
-  res.send('Welcome to backend');
+  res.send('Welcome to backend --submited by : rahul guglani');
 });
 
 // Start the server
