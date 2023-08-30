@@ -1,4 +1,4 @@
-name: Build and Push Docker Image and run container using bash script
+name: Build and Push Docker Image and run container
 
 on:     # this github action will work when we push some changes in main branch
   push:
